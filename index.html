@@ -6,6 +6,7 @@
 <title>Frank's Painting of LI (website concept)</title>
 <meta name="description" content="Website concept for Frank's Painting of LI, LLC: interior, exterior, cabinet and commercial painting across Nassau and Suffolk, with online estimate booking.">
 <meta name="robots" content="noindex">
+<script>document.documentElement.className+=" js"</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,13 +14,12 @@
 :root{
  --paper:#f6f1e7;--card:#fffdf8;--ink:#1e1b18;--soft:#5b554d;--line:#ddd4c4;
  --red:#d22f25;--red-d:#a8231b;--sage:#7d8f72;--clay:#c9875e;--sky:#8fb0c4;--butter:#ecd18a;
- --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:72px;--s8:112px;
- --wrap:1180px;--r:10px;
+ --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:72px;--s8:88px;
+ --wrap:1200px;--r:12px;--ease:cubic-bezier(.2,.7,.2,1);
  --serif:"Young Serif",Georgia,serif;--sans:"Figtree",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit}
@@ -29,171 +29,260 @@ a{color:inherit}
 .skip:focus{left:var(--s3);top:var(--s3)}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
 .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red-d);margin:0 0 var(--s3)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 var(--s4);border-radius:999px;font:700 1rem var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 var(--s4);border-radius:999px;font:700 1rem var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,transform .2s var(--ease)}
+.btn:active{transform:scale(.97)}
 .btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d)}
 .btn-ink{background:transparent;border-color:var(--ink);color:var(--ink)}.btn-ink:hover{background:var(--ink);color:#fff}
 
 .concept{background:var(--ink);color:#f6f1e7;font-size:.82rem;text-align:center;padding:var(--s2) var(--s3)}
 .concept a{color:#fff;font-weight:700}
 
-header.site{position:sticky;top:0;z-index:40;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:76px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo .mark{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:1.45rem}
-.logo b{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1}
-.logo small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:3px}
-nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:var(--s4)}
-nav.main a{text-decoration:none;font-weight:600;padding:var(--s2) 0}
-nav.main a:hover{color:var(--red-d)}
-.hd .btn{min-height:46px;padding:0 var(--s4)}
-.menu-btn{display:none;min-height:46px;min-width:48px;border-radius:999px;border:2px solid var(--ink);background:none;font:700 .95rem var(--sans);cursor:pointer;padding:0 var(--s3)}
+header.site{position:sticky;top:0;z-index:40;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.site.sc{border-color:var(--line);box-shadow:0 8px 24px -18px rgba(60,40,20,.5)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:80px}
+.logo{display:flex;align-items:center;text-decoration:none;min-height:48px}
+.logo img{height:52px;width:auto;mix-blend-mode:multiply}
+nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:var(--s5)}
+nav.main a{display:inline-block;text-decoration:none;font-weight:600;padding:10px 0;background:linear-gradient(var(--red),var(--red)) 0 100%/0 2px no-repeat;transition:background-size .3s var(--ease)}
+nav.main a:hover{background-size:100% 2px}
+.hd .btn{min-height:48px}
+.menu-btn{display:none;min-height:48px;min-width:48px;border-radius:999px;border:2px solid var(--ink);background:none;font:700 .95rem var(--sans);cursor:pointer;padding:0 var(--s3)}
 @media (max-width:940px){
  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line)}
  nav.main.open{display:block}
  nav.main ul{flex-direction:column;gap:0;padding:var(--s2) var(--s4) var(--s4)}
- nav.main a{display:block;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+ nav.main a{display:block;padding:var(--s3) 0;border-bottom:1px solid var(--line);background:none}
  .menu-btn{display:inline-flex;align-items:center}
  .hd .book-top{display:none}
 }
+@media (max-width:420px){.logo img{height:42px}}
 
 /* hero */
-.hero{padding:var(--s7) 0 var(--s7)}
-.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s6);align-items:center}
-.hero h1{font-size:clamp(2.7rem,6vw,5.1rem)}
-.hero h1 .u{background:linear-gradient(transparent 68%,var(--butter) 68% 92%,transparent 92%);padding:0 .06em}
-.hero .lead{font-size:1.15rem;color:var(--soft);margin:var(--s4) 0 var(--s5);max-width:31em}
+.hero{padding:var(--s6) 0 var(--s5)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7);align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,5rem)}
+.u{position:relative;z-index:0;white-space:nowrap}
+.u svg{position:absolute;left:-4%;bottom:-.02em;width:108%;height:.42em;z-index:-1;overflow:visible}
+.u path{fill:none;stroke:var(--butter);stroke-width:14;stroke-linecap:round;stroke-dasharray:240;stroke-dashoffset:0}
+.js .u path{stroke-dashoffset:240}
+.js .hero.go .u path{stroke-dashoffset:0;transition:stroke-dashoffset 1s var(--ease) 2.3s}
+.hero .lead{font-size:1.15rem;color:var(--soft);margin:var(--s4) 0 var(--s5);max-width:32em}
 .cta{display:flex;flex-wrap:wrap;gap:var(--s3)}
-.trust{display:flex;flex-wrap:wrap;gap:var(--s5);margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line)}
-.trust div b{display:block;font-family:var(--serif);font-size:2rem;line-height:1.1}
-.trust div span{font-size:.88rem;color:var(--soft)}
+.trust{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:var(--s6);margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line)}
+.trust b{display:block;font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.trust span{font-size:.88rem;color:var(--soft)}
+@media (max-width:520px){.trust{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}.trust b{font-size:1.6rem}}
+
+/* the roller reveal */
 .hero-art{position:relative}
-.hero-art .main-photo{border-radius:220px 220px var(--r) var(--r);overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 30px 60px rgba(60,40,20,.18)}
-.hero-art .main-photo img{width:100%;height:100%;object-fit:cover}
-.fan{position:absolute;left:-34px;bottom:44px;display:flex}
-.chip{width:64px;height:150px;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.18);border:5px solid #fff;border-bottom-width:26px;transform-origin:50% 100%;margin-left:-26px}
+.canvas{position:relative;border-radius:240px 240px var(--r) var(--r);overflow:hidden;aspect-ratio:4/4.5;background:#d9d3c8;box-shadow:0 34px 60px -24px rgba(60,40,20,.35)}
+.canvas img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.canvas .primer{filter:grayscale(1) brightness(1.18) contrast(.78) sepia(.12)}
+.lane{position:absolute;inset:0}
+.lane:nth-of-type(1){clip-path:inset(0 66.4% 0 0)}
+.lane:nth-of-type(2){clip-path:inset(0 33.2% 0 33.2%)}
+.lane:nth-of-type(3){clip-path:inset(0 0 0 66.4%)}
+.js .lane:nth-of-type(1){clip-path:inset(0 66.4% 100% 0)}
+.js .lane:nth-of-type(2){clip-path:inset(0 33.2% 100% 33.2%)}
+.js .lane:nth-of-type(3){clip-path:inset(0 0 100% 66.4%)}
+.go .lane{animation:1.5s cubic-bezier(.5,.05,.4,1) forwards}
+.go .lane:nth-of-type(1){animation-name:p1;animation-delay:.25s}
+.go .lane:nth-of-type(2){animation-name:p2;animation-delay:.75s}
+.go .lane:nth-of-type(3){animation-name:p3;animation-delay:1.25s}
+@keyframes p1{to{clip-path:inset(0 66.4% 0 0)}}
+@keyframes p2{to{clip-path:inset(0 33.2% 0 33.2%)}}
+@keyframes p3{to{clip-path:inset(0 0 0 66.4%)}}
+.rollers{position:absolute;inset:0;pointer-events:none}
+.track{position:absolute;top:0;height:100%;width:33.3%;display:none}
+.js .track{display:block}
+.track:nth-child(1){left:0}.track:nth-child(2){left:33.3%}.track:nth-child(3){left:66.6%}
+.track .rl{position:absolute;left:6%;width:88%;top:0;transform:translateY(-100%)}
+.track .rl svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.28))}
+.go .track{animation:1.5s cubic-bezier(.5,.05,.4,1) forwards roll}
+.go .track:nth-child(1){animation-delay:.25s}
+.go .track:nth-child(2){animation-delay:.75s}
+.go .track:nth-child(3){animation-delay:1.25s}
+.track{transform:translateY(0)}
+.track .rl{transform:translateY(-80%)}
+.js .track{opacity:0}
+@keyframes roll{0%{transform:translateY(-6%);opacity:1}88%{opacity:1}100%{transform:translateY(100%);opacity:0}}
+.fan{position:absolute;left:-30px;bottom:48px;display:flex;z-index:2}
+.chip{width:62px;height:150px;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.18);border:5px solid #fff;border-bottom-width:26px;transform-origin:50% 100%;margin-left:-26px;transition:transform .8s var(--ease)}
 .chip:first-child{margin-left:0}
-.chip:nth-child(1){background:var(--red);transform:rotate(-16deg)}
-.chip:nth-child(2){background:var(--clay);transform:rotate(-6deg)}
-.chip:nth-child(3){background:var(--butter);transform:rotate(4deg)}
-.chip:nth-child(4){background:var(--sage);transform:rotate(14deg)}
-.hero-art .tag{position:absolute;right:-12px;top:36px;background:var(--card);border-radius:var(--r);padding:var(--s3) var(--s4);box-shadow:0 12px 30px rgba(0,0,0,.12);font-size:.9rem;max-width:220px}
+.chip:nth-child(1){background:var(--red);--a:-16deg}
+.chip:nth-child(2){background:var(--clay);--a:-6deg}
+.chip:nth-child(3){background:var(--butter);--a:4deg}
+.chip:nth-child(4){background:var(--sage);--a:14deg}
+.chip{transform:rotate(var(--a))}
+.js .chip{transform:rotate(0)}
+.js .go .chip{transform:rotate(var(--a));transition-delay:2.6s}
+.js .go .chip:nth-child(2){transition-delay:2.66s}.js .go .chip:nth-child(3){transition-delay:2.72s}.js .go .chip:nth-child(4){transition-delay:2.78s}
+.hero-art .tag{position:absolute;right:-14px;top:40px;z-index:2;background:var(--card);border-radius:var(--r);padding:var(--s3) var(--s4);box-shadow:0 14px 30px rgba(0,0,0,.14);font-size:.9rem;max-width:230px;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js .hero-art .tag{opacity:0;transform:translateY(12px)}
+.js .go .tag{opacity:1;transform:none;transition-delay:2.9s}
 .hero-art .tag b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:520px;margin:0 auto;width:100%}.fan{left:-6px}.hero-art .tag{right:6px}}
-@media (max-width:520px){.chip{width:48px;height:112px;border-bottom-width:20px;margin-left:-20px}.hero-art .tag{top:12px;max-width:180px;padding:var(--s2) var(--s3)}}
+.hero-art .cap{position:absolute;left:var(--s4);bottom:var(--s3);z-index:2;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:var(--s6)}.hero-art{max-width:540px;margin:0 auto;width:100%}.fan{left:-6px}.hero-art .tag{right:6px}}
+@media (max-width:520px){.hero{padding-top:var(--s5)}.chip{width:46px;height:110px;border-bottom-width:20px;margin-left:-20px}.hero-art .tag{top:14px;max-width:180px;padding:var(--s2) var(--s3)}.canvas{border-radius:180px 180px var(--r) var(--r)}}
 
 section{padding:var(--s8) 0}
 .head{max-width:720px;margin-bottom:var(--s6)}
 .head h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
 .head p{color:var(--soft);font-size:1.08rem;margin:var(--s3) 0 0}
-.head .eyebrow{color:var(--red-d);margin:0 0 var(--s3)}
+.head-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s6);align-items:end;margin-bottom:var(--s6)}
+.head-row .head{margin:0}
+.head-row>p{margin:0;color:var(--soft);font-size:1.08rem}
+@media (max-width:860px){.head-row{grid-template-columns:1fr;gap:var(--s3)}}
 @media (max-width:760px){section{padding:var(--s7) 0}}
 
-/* services as paint chips */
-.chips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
-.svc{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line),0 10px 26px rgba(60,40,20,.07);display:flex;flex-direction:column}
+/* scroll reveals */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* services: primer to colour */
+.chips-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+.svc{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line),0 12px 28px -12px rgba(60,40,20,.22);display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.svc:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--line),0 22px 36px -14px rgba(60,40,20,.32)}
 .svc .ph{aspect-ratio:4/3;overflow:hidden;background:#e8e0d0}
-.svc .ph img{width:100%;height:100%;object-fit:cover}
-.svc .sw{height:10px}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:filter 1.3s var(--ease),transform 1.3s var(--ease)}
+.js .svc .ph img{filter:grayscale(1) brightness(1.15) contrast(.8);transform:scale(1.04)}
+.js .svc.in .ph img{filter:none;transform:none;transition-delay:calc(var(--d,0)*90ms + .2s)}
+.svc .sw{height:10px;transform-origin:0 50%;transition:transform 1s var(--ease)}
+.js .svc .sw{transform:scaleX(0)}
+.js .svc.in .sw{transform:none;transition-delay:calc(var(--d,0)*90ms + .4s)}
 .svc .bd{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s2);flex:1}
 .svc h3{font-size:1.35rem}
 .svc p{margin:0;color:var(--soft);font-size:.95rem}
 .svc .code{margin-top:auto;padding-top:var(--s3);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .svc.wide{grid-column:span 2}
-.svc.wide .ph{aspect-ratio:16/9}
-.svc.note{background:var(--ink);color:var(--paper);justify-content:center}
-.svc.note p{color:#d9d1c2}
-@media (max-width:1000px){.chips-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.chips-grid{grid-template-columns:1fr}.svc.wide{grid-column:auto}}
+.svc.wide .ph{aspect-ratio:auto;flex:1;min-height:220px}
+@media (max-width:1000px){.chips-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.chips-grid{grid-template-columns:1fr}.svc.wide{grid-column:auto}.svc.wide .ph{aspect-ratio:4/3;min-height:0}}
 
-/* prep */
+/* prep: a stripe paints down the steps */
 .prep{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.prep-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7);align-items:center}
-.prep-grid figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
-.prep-grid figure img{width:100%;height:100%;object-fit:cover}
-.prep ol{list-style:none;margin:var(--s5) 0 0;padding:0;counter-reset:p}
-.prep li{counter-increment:p;display:grid;grid-template-columns:56px 1fr;gap:var(--s3);padding:var(--s4) 0;border-top:1px solid var(--line)}
-.prep li::before{content:counter(p,decimal-leading-zero);font-family:var(--serif);font-size:1.6rem;color:var(--red)}
-.prep li b{display:block;font-size:1.08rem}
-.prep li span{color:var(--soft)}
-@media (max-width:860px){.prep-grid{grid-template-columns:1fr;gap:var(--s6)}.prep-grid figure{aspect-ratio:4/3}}
+.prep-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7);align-items:stretch}
+.prep-grid figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative;min-height:420px}
+.prep-grid figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prep-grid figure figcaption{position:absolute;left:var(--s3);bottom:var(--s3);background:rgba(30,27,24,.82);color:#fff;font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:8px}
+.prep h2{font-size:clamp(2rem,4vw,3.1rem)}
+.steps{list-style:none;margin:var(--s5) 0 0;padding:0;position:relative}
+.steps::before,.steps .stripe{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:4px;border-radius:4px;background:var(--line)}
+.steps .stripe{background:var(--red);transform-origin:50% 0;transform:scaleY(var(--p,1))}
+.js .steps .stripe{--p:0}
+.steps li{position:relative;display:grid;grid-template-columns:46px 1fr;gap:var(--s4);padding:var(--s3) 0}
+.steps .n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font-family:var(--serif);font-size:1.1rem;position:relative;z-index:1;transition:background .4s,color .4s,box-shadow .4s}
+.js .steps li:not(.on) .n{background:var(--card);color:var(--soft);box-shadow:inset 0 0 0 2px var(--line)}
+.steps b{display:block;font-size:1.1rem;padding-top:9px}
+.steps span{color:var(--soft)}
+@media (max-width:860px){.prep-grid{grid-template-columns:1fr;gap:var(--s6)}.prep-grid figure{min-height:0;aspect-ratio:4/3}}
 
-/* booking add-on */
+/* booking */
 .booking{background:var(--ink);color:var(--paper)}
 .booking .eyebrow{color:var(--butter)}
-.booking .head p{color:#cfc6b6}
-.addon{display:inline-flex;align-items:center;gap:var(--s2);background:var(--butter);color:var(--ink);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:6px 12px;margin-bottom:var(--s4)}
-.bk-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--s6);align-items:start}
-.bk{background:var(--card);color:var(--ink);border-radius:16px;padding:var(--s5)}
+.bk-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:auto 1fr;grid-template-areas:"head card" "inc card";column-gap:var(--s7);row-gap:var(--s6)}
+.bk-head{grid-area:head}
+.bk-head h2{font-size:clamp(2.1rem,4.2vw,3.3rem)}
+.bk-head p{color:#cfc6b6;font-size:1.08rem;margin:var(--s3) 0 0;max-width:30em}
+.bk-inc{grid-area:inc;align-self:end}
+.bk{grid-area:card;background:var(--card);color:var(--ink);border-radius:18px;padding:var(--s5);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+@media (max-width:920px){.bk-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"head" "card" "inc";row-gap:var(--s5)}}
 .bk-steps{display:flex;gap:var(--s2);margin-bottom:var(--s4);flex-wrap:wrap}
-.bk-steps span{font-size:.8rem;font-weight:700;padding:6px 12px;border-radius:999px;background:#efe8da;color:var(--soft)}
+.bk-steps span{font-size:.8rem;font-weight:700;padding:6px 12px;border-radius:999px;background:#efe8da;color:var(--soft);transition:background .3s,color .3s}
 .bk-steps span.on{background:var(--ink);color:#fff}
-.bk fieldset{border:0;margin:0 0 var(--s4);padding:0}
+.bk fieldset{border:0;margin:0 0 var(--s4);padding:0;min-width:0}
 .bk legend{font-family:var(--serif);font-size:1.3rem;margin-bottom:var(--s3);padding:0}
 .opts{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;width:1px;height:1px}
-.opt span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:var(--s2) var(--s3);border:1.5px solid var(--line);border-radius:10px;font-weight:600;cursor:pointer;background:#fff;text-align:center;line-height:1.2}
+.opt span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:var(--s2) var(--s3);border:1.5px solid var(--line);border-radius:10px;font-weight:600;cursor:pointer;background:#fff;text-align:center;line-height:1.2;transition:background .2s,border-color .2s,color .2s,transform .2s var(--ease)}
+.opt span:hover{border-color:var(--ink)}
 .opt span small{font-weight:500;font-size:.75rem;color:var(--soft)}
-.opt input:checked+span{background:var(--red);border-color:var(--red);color:#fff}
+.opt input:checked+span{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px)}
 .opt input:checked+span small{color:#ffe1dd}
 .opt input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px}
-.opt input:disabled+span{opacity:.4;text-decoration:line-through;cursor:not-allowed}
-.days{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2)}
+.opt input:disabled+span{opacity:.4;text-decoration:line-through;cursor:not-allowed;transform:none}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s2)}
 .days .opt span{min-height:64px;width:100%}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
 .field{margin-bottom:var(--s3)}
 label.l{display:block;font-weight:700;font-size:.9rem;margin-bottom:var(--s1)}
-input.t,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid #c9bfae;border-radius:10px;background:#fff;color:var(--ink);min-height:48px}
-input.t:focus,textarea:focus{outline:3px solid var(--butter);outline-offset:1px;border-color:var(--ink)}
+input.t{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid #c9bfae;border-radius:10px;background:#fff;color:var(--ink);min-height:48px}
+input.t:focus{outline:3px solid var(--butter);outline-offset:1px;border-color:var(--ink)}
 .err{color:#a31d14;font-size:.85rem;font-weight:600;margin-top:4px}
-.summary{background:#f3ecdf;border-radius:10px;padding:var(--s3);font-size:.95rem;margin-bottom:var(--s3)}
+.summary{background:#f3ecdf;border-left:4px solid var(--red);border-radius:10px;padding:var(--s3);font-size:.95rem;margin-bottom:var(--s3)}
 .demo-note{font-size:.85rem;color:var(--soft);margin:var(--s3) 0 0}
-.booking .side .demo-note{color:#bdb4a4}
-.side h3{font-size:1.6rem;margin-bottom:var(--s3)}
-.side ul{list-style:none;padding:0;margin:0 0 var(--s4)}
-.side li{padding:var(--s3) 0;border-top:1px solid #3a3530;color:#ded6c7}
-.side li b{color:#fff}
-.price{font-family:var(--serif);font-size:2.6rem;color:var(--butter);line-height:1}
-.price small{font-family:var(--sans);font-size:.9rem;color:#cfc6b6;display:block;margin-top:var(--s1)}
-.ok{text-align:center;padding:var(--s5) var(--s3)}
+.bk-inc h3{font-size:1.5rem;margin-bottom:var(--s3)}
+.bk-inc ul{list-style:none;padding:0;margin:0 0 var(--s5)}
+.bk-inc li{display:grid;grid-template-columns:28px 1fr;gap:var(--s2);padding:var(--s3) 0;border-top:1px solid #3a3530;color:#ded6c7}
+.bk-inc li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--butter);margin-top:7px}
+.bk-inc li b{color:#fff}
+.price-row{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:var(--s3);padding-top:var(--s4);border-top:1px solid #3a3530}
+.price{font-family:var(--serif);font-size:2.6rem;color:var(--butter);line-height:1;margin:0}
+.price small{font-family:var(--sans);font-size:.9rem;color:#cfc6b6;display:block;margin-top:var(--s2)}
+.bk-inc .demo-note{color:#bdb4a4;max-width:22em;margin:0}
+.ok{text-align:center;padding:var(--s6) var(--s3)}
 .ok h3{font-size:2rem;margin-bottom:var(--s2)}
-@media (max-width:920px){.bk-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.bk{padding:var(--s4)}.days{grid-template-columns:repeat(3,1fr)}.row2{grid-template-columns:1fr}}
+.ok .tick{width:72px;height:72px;margin:0 auto var(--s4)}
+.ok .tick circle{fill:var(--red)}
+.ok .tick path{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:draw .6s var(--ease) .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (max-width:560px){.bk{padding:var(--s4)}.days{grid-template-columns:repeat(3,minmax(0,1fr))}.row2{grid-template-columns:1fr}}
 
 /* consult band */
 .consult{padding:var(--s7) 0}
-.consult-card{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s5);align-items:center;background:var(--card);border-radius:16px;padding:var(--s5);border:1px solid var(--line)}
-.swatches{display:grid;grid-template-columns:repeat(3,28px);gap:6px}
-.swatches i{height:28px;border-radius:6px}
+.consult-card{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s5);align-items:center;background:var(--card);border-radius:18px;padding:var(--s5);border:1px solid var(--line)}
+.swatches{display:grid;grid-template-columns:repeat(3,30px);gap:6px}
+.swatches i{height:30px;border-radius:6px;transition:transform .5s var(--ease);transition-delay:calc(var(--i)*70ms)}
+.js .consult-card:not(.in) .swatches i{transform:scale(0)}
 .consult-card h3{font-size:1.7rem}
 .consult-card p{margin:var(--s1) 0 0;color:var(--soft)}
 @media (max-width:760px){.consult-card{grid-template-columns:1fr}}
 
 /* areas */
 .areas{background:var(--card);border-top:1px solid var(--line)}
-.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7)}
-.towns{columns:2;column-gap:var(--s5);margin:0;padding:0;list-style:none}
-.towns li{padding:var(--s2) 0;border-bottom:1px dashed var(--line);break-inside:avoid}
-.contact-box{background:var(--paper);border-radius:16px;padding:var(--s5)}
-.contact-box a.big{font-family:var(--serif);font-size:2rem;text-decoration:none;display:block;margin:var(--s2) 0 var(--s3)}
+.area-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7);align-items:stretch}
+.area-grid h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:var(--s4)}
+.towns{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--s5);margin:0;padding:0;list-style:none}
+.towns li{padding:var(--s3) 0;border-bottom:1px dashed var(--line);font-weight:600}
+.contact-box{background:var(--paper);border-radius:18px;padding:var(--s5);display:flex;flex-direction:column}
+.contact-box a.big{font-family:var(--serif);font-size:2.2rem;text-decoration:none;display:block;margin:0 0 var(--s3)}
+.contact-box .btn{align-self:flex-start;margin-top:auto}
 @media (max-width:860px){.area-grid{grid-template-columns:1fr;gap:var(--s6)}}
 
 footer{background:var(--ink);color:#cfc6b6;padding:var(--s6) 0 var(--s5);font-size:.92rem}
 .ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s4);padding-bottom:var(--s4);border-bottom:1px solid #3a3530}
 footer b{color:#fff;font-family:var(--serif);font-weight:400;font-size:1.2rem}
 footer a{color:#fff}
-.dis{font-size:.8rem;color:#958d80;margin-top:var(--s4);max-width:70em}
+.dis{font-size:.8rem;color:#a39b8e;margin-top:var(--s4);max-width:70em}
 .mobile-book{display:none}
 @media (max-width:640px){.mobile-book{display:flex;position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.3)}body{padding-bottom:84px}}
+
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .lane:nth-of-type(1){clip-path:inset(0 66.4% 0 0)}
+ .js .lane:nth-of-type(2){clip-path:inset(0 33.2% 0 33.2%)}
+ .js .lane:nth-of-type(3){clip-path:inset(0 0 0 66.4%)}
+ .js .track{display:none}
+ .js .u path{stroke-dashoffset:0}
+ .js .chip{transform:rotate(var(--a))}
+ .js .hero-art .tag,.js .rv{opacity:1;transform:none}
+ .js .svc .ph img{filter:none;transform:none}
+ .js .svc .sw,.js .consult-card .swatches i{transform:none}
+ .js .steps .stripe{--p:1}
+ .js .steps li:not(.on) .n{background:var(--red);color:#fff;box-shadow:none}
+ .ok .tick path{stroke-dashoffset:0}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="concept">Website concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>. A sample, not the official Frank's Painting of LI site.</div>
 
-<header class="site">
+<header class="site" id="hdr">
  <div class="wrap hd">
-  <a class="logo" href="#top" aria-label="Frank's Painting of LI, home"><span class="mark" aria-hidden="true">F</span><span><b>Frank's Painting</b><small>of Long Island</small></span></a>
+  <a class="logo" href="#top"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/logo/f417dc67-1651-46d4-92ab-2cd490955c97.jpg/:/rs=w:600" alt="Frank's Painting, home" width="600" height="252"></a>
   <nav class="main" id="nav" aria-label="Main">
    <ul>
     <li><a href="#services">Services</a></li>
@@ -213,21 +302,31 @@ footer a{color:#fff}
 <section class="hero" id="top">
  <div class="wrap hero-grid">
   <div>
-   <p class="eyebrow">Licensed painting contractor &middot; Levittown</p>
-   <h1>Walls, trim and siding done right, from the <span class="u">prep</span> up.</h1>
-   <p class="lead">Interior and exterior painting, kitchen cabinets, skim coating and commercial work across Nassau and Suffolk. Pick a time for your estimate online and Frank's team emails the price within hours.</p>
+   <h1>Walls, trim and siding done right, from the <span class="u">prep<svg viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true"><path d="M6 15 C 50 7, 120 5, 194 11"/></svg></span> up.</h1>
+   <p class="lead">A licensed painting contractor in Levittown for interior and exterior painting, kitchen cabinets, skim coating and commercial work across Nassau and Suffolk. Pick a time for your estimate online and Frank's team emails the price within hours.</p>
    <div class="cta">
     <a class="btn btn-red" href="#book">Book an estimate</a>
     <a class="btn btn-ink" href="tel:+15169245398">Call (516) 924-5398</a>
    </div>
    <div class="trust">
-    <div><b>4.9</b><span>379 HomeAdvisor reviews</span></div>
-    <div><b>3,000+</b><span>Residential projects</span></div>
-    <div><b>10+ yrs</b><span>On Long Island</span></div>
+    <div><b data-n="4.9" data-dec="1">4.9</b><span>379 HomeAdvisor reviews</span></div>
+    <div><b data-n="3000" data-suf="+">3,000+</b><span>Residential projects</span></div>
+    <div><b data-n="10" data-suf="+ yrs">10+ yrs</b><span>On Long Island</span></div>
    </div>
   </div>
-  <div class="hero-art">
-   <div class="main-photo"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/20160523_100012.jpg/:/rs=w:1000" alt="House exterior freshly painted by Frank's Painting" width="1000" height="750"></div>
+  <div class="hero-art" id="art">
+   <div class="canvas">
+    <img class="primer" src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/20160523_100012.jpg/:/rs=w:1000" alt="House exterior freshly painted by Frank's Painting" width="1000" height="750">
+    <div class="lane" aria-hidden="true"><img id="heroImg" src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/20160523_100012.jpg/:/rs=w:1000" alt=""></div>
+    <div class="lane" aria-hidden="true"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/20160523_100012.jpg/:/rs=w:1000" alt=""></div>
+    <div class="lane" aria-hidden="true"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/20160523_100012.jpg/:/rs=w:1000" alt=""></div>
+    <div class="rollers" aria-hidden="true">
+     <div class="track"><div class="rl"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="54" y="0" width="12" height="36" rx="5" fill="#1e1b18"/><path d="M60 34v12h56v20h-6" fill="none" stroke="#3a3530" stroke-width="5" stroke-linejoin="round"/><rect x="4" y="64" width="108" height="30" rx="15" fill="#d22f25"/><rect x="12" y="69" width="92" height="6" rx="3" fill="#ff7a6e" opacity=".55"/></svg></div></div>
+     <div class="track"><div class="rl"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="54" y="0" width="12" height="36" rx="5" fill="#1e1b18"/><path d="M60 34v12h56v20h-6" fill="none" stroke="#3a3530" stroke-width="5" stroke-linejoin="round"/><rect x="4" y="64" width="108" height="30" rx="15" fill="#d22f25"/><rect x="12" y="69" width="92" height="6" rx="3" fill="#ff7a6e" opacity=".55"/></svg></div></div>
+     <div class="track"><div class="rl"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="54" y="0" width="12" height="36" rx="5" fill="#1e1b18"/><path d="M60 34v12h56v20h-6" fill="none" stroke="#3a3530" stroke-width="5" stroke-linejoin="round"/><rect x="4" y="64" width="108" height="30" rx="15" fill="#d22f25"/><rect x="12" y="69" width="92" height="6" rx="3" fill="#ff7a6e" opacity=".55"/></svg></div></div>
+    </div>
+    <span class="cap">A Frank's exterior, from their website</span>
+   </div>
    <div class="fan" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span><span class="chip"></span></div>
    <div class="tag"><b>Estimates emailed within hours</b>After your walk-through, not days later.</div>
   </div>
@@ -236,103 +335,106 @@ footer a{color:#fff}
 
 <section id="services" style="padding-top:var(--s6)">
  <div class="wrap">
-  <div class="head">
-   <p class="eyebrow">Services</p>
-   <h2>Everything from one bedroom to a full storefront.</h2>
-   <p>Each card below is a job Frank's crew does every week. Tap "Book an estimate" when you know what you need.</p>
+  <div class="head-row">
+   <div class="head rv">
+    <p class="eyebrow">Services</p>
+    <h2>Everything from one bedroom to a full storefront.</h2>
+   </div>
+   <p class="rv" style="--d:1">Each card below is a job Frank's crew does every week. Watch them go from primer to finished as you scroll, then book an estimate when you know what you need.</p>
   </div>
   <div class="chips-grid">
-   <article class="svc wide"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/FB_IMG_1699052102560.jpg/:/rs=w:1000" alt="Freshly painted interior room" width="960" height="1200" loading="lazy"></div><div class="sw" style="background:var(--sky)"></div><div class="bd"><h3>Interior painting</h3><p>Walls, ceilings, trim and doors. Every imperfection is caulked and spackled before the first coat goes on.</p><span class="code">Most booked</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/Resized_20210418_131056.jpeg/:/rs=w:800" alt="Recent Frank's Painting exterior project" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--sage)"></div><div class="bd"><h3>Exterior painting</h3><p>Power wash, scrape, sand, prime, then paint with top exterior products.</p><span class="code">Spring to fall</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/blob.png/:/rs=w:800" alt="Kitchen cabinets spray painted" width="800" height="1066" loading="lazy"></div><div class="sw" style="background:var(--butter)"></div><div class="bd"><h3>Kitchen cabinets &amp; built-ins</h3><p>Sprayed for a smooth, factory-style finish without replacing the boxes.</p><span class="code">Sprayed finish</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dc5af076-5880-4ca2-9241-35c38cd1e7a5.jpg/:/rs=w:800" alt="Wall after spackle and skim coating" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--clay)"></div><div class="bd"><h3>Spackle, skim coat &amp; wallpaper removal</h3><p>Old paper stripped, walls skimmed smooth and ready for paint.</p><span class="code">Wall prep</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dec22910-a7f6-4220-ae81-2f7d71a0351e.jpg/:/rs=w:800" alt="Ceiling repaired after water damage" width="800" height="451" loading="lazy"></div><div class="sw" style="background:var(--sky)"></div><div class="bd"><h3>Water damage repair</h3><p>Damaged sheetrock or plaster out, new insulation and sheetrock in, finished to match.</p><span class="code">Repair</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/IMG_9451.jpg/:/rs=w:800" alt="House siding being power washed" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--sage)"></div><div class="bd"><h3>Power washing</h3><p>Set daily rates, no surprise charges. Spring, summer and fall.</p><span class="code">Seasonal</span></div></article>
-   <article class="svc"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/commercial%20space.png/:/rs=w:800" alt="Commercial space painted by Frank's Painting" width="790" height="465" loading="lazy"></div><div class="sw" style="background:var(--red)"></div><div class="bd"><h3>Commercial painting</h3><p>Offices, storefronts, medical spaces, restaurants, banks and schools.</p><span class="code">Commercial</span></div></article>
+   <article class="svc wide rv"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/FB_IMG_1699052102560.jpg/:/rs=w:1000" alt="Freshly painted interior room" width="960" height="1200" loading="lazy"></div><div class="sw" style="background:var(--sky)"></div><div class="bd"><h3>Interior painting</h3><p>Walls, ceilings, trim and doors. Every imperfection is caulked and spackled before the first coat goes on.</p><span class="code">Most booked</span></div></article>
+   <article class="svc rv" style="--d:1"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/Resized_20210418_131056.jpeg/:/rs=w:800" alt="Recent Frank's Painting exterior project" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--sage)"></div><div class="bd"><h3>Exterior painting</h3><p>Power wash, scrape, sand, prime, then paint with top exterior products.</p><span class="code">Spring to fall</span></div></article>
+   <article class="svc rv" style="--d:2"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/blob.png/:/rs=w:800" alt="Kitchen cabinets spray painted" width="800" height="1066" loading="lazy"></div><div class="sw" style="background:var(--butter)"></div><div class="bd"><h3>Kitchen cabinets &amp; built-ins</h3><p>Sprayed for a smooth, factory-style finish without replacing the boxes.</p><span class="code">Sprayed finish</span></div></article>
+   <article class="svc rv"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dc5af076-5880-4ca2-9241-35c38cd1e7a5.jpg/:/rs=w:800" alt="Wall after spackle and skim coating" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--clay)"></div><div class="bd"><h3>Spackle, skim coat &amp; wallpaper removal</h3><p>Old paper stripped, walls skimmed smooth and ready for paint.</p><span class="code">Wall prep</span></div></article>
+   <article class="svc rv" style="--d:1"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dec22910-a7f6-4220-ae81-2f7d71a0351e.jpg/:/rs=w:800" alt="Ceiling repaired after water damage" width="800" height="451" loading="lazy"></div><div class="sw" style="background:var(--sky)"></div><div class="bd"><h3>Water damage repair</h3><p>Damaged sheetrock or plaster out, new insulation and sheetrock in, finished to match.</p><span class="code">Repair</span></div></article>
+   <article class="svc rv" style="--d:2"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/IMG_9451.jpg/:/rs=w:800" alt="House siding being power washed" width="800" height="600" loading="lazy"></div><div class="sw" style="background:var(--sage)"></div><div class="bd"><h3>Power washing</h3><p>Set daily rates, no surprise charges. Spring, summer and fall.</p><span class="code">Seasonal</span></div></article>
+   <article class="svc rv" style="--d:3"><div class="ph"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/commercial%20space.png/:/rs=w:800" alt="Commercial space painted by Frank's Painting" width="790" height="465" loading="lazy"></div><div class="sw" style="background:var(--red)"></div><div class="bd"><h3>Commercial painting</h3><p>Offices, storefronts, medical spaces, restaurants, banks and schools.</p><span class="code">Commercial</span></div></article>
   </div>
  </div>
 </section>
 
 <section class="prep" id="prep">
  <div class="wrap prep-grid">
-  <figure><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dc5af076-5880-4ca2-9241-35c38cd1e7a5.jpg/:/rs=w:900" alt="Wall prepared with spackle before painting" width="900" height="675" loading="lazy"></figure>
+  <figure class="rv"><img src="https://img1.wsimg.com/isteam/ip/1e746e45-9983-4739-aa38-45d537e6b366/dc5af076-5880-4ca2-9241-35c38cd1e7a5.jpg/:/rs=w:900" alt="Wall prepared with spackle before painting" width="900" height="675" loading="lazy"><figcaption>Spackle first, paint second</figcaption></figure>
   <div>
-   <p class="eyebrow">Why it lasts</p>
-   <h2 style="font-size:clamp(2rem,4vw,3.1rem)">The paint is the last step. The prep is the job.</h2>
-   <ol>
-    <li><div><b>Protect the room</b><span>Floors and furniture covered before anything is opened.</span></div></li>
-    <li><div><b>Fix what's under the paint</b><span>Cracks caulked, dings and nail holes spackled, rough spots sanded.</span></div></li>
-    <li><div><b>Prime where it matters</b><span>Patches and bare surfaces primed so the color reads evenly.</span></div></li>
-    <li><div><b>Two clean coats</b><span>Sharp lines at the ceiling and trim, then a walk-through with you.</span></div></li>
+   <p class="eyebrow rv">Why it lasts</p>
+   <h2 class="rv" style="--d:1">The paint is the last step. The prep is the job.</h2>
+   <ol class="steps" id="steps">
+    <span class="stripe" aria-hidden="true"></span>
+    <li><span class="n" aria-hidden="true">01</span><div><b>Protect the room</b><span>Floors and furniture covered before anything is opened.</span></div></li>
+    <li><span class="n" aria-hidden="true">02</span><div><b>Fix what's under the paint</b><span>Cracks caulked, dings and nail holes spackled, rough spots sanded.</span></div></li>
+    <li><span class="n" aria-hidden="true">03</span><div><b>Prime where it matters</b><span>Patches and bare surfaces primed so the color reads evenly.</span></div></li>
+    <li><span class="n" aria-hidden="true">04</span><div><b>Two clean coats</b><span>Sharp lines at the ceiling and trim, then a walk-through with you.</span></div></li>
    </ol>
   </div>
  </div>
 </section>
 
 <section class="booking" id="book">
- <div class="wrap">
-  <span class="addon">Featured add-on in this concept</span>
-  <div class="head">
+ <div class="wrap bk-grid">
+  <div class="bk-head rv">
    <p class="eyebrow">Online estimate booking</p>
    <h2>Pick a day for your estimate. No phone tag.</h2>
    <p>Most people look for a painter at night, after work. This lets them grab a time on the spot instead of waiting for a callback.</p>
   </div>
-  <div class="bk-grid">
-   <div class="bk">
-    <form id="bkForm" novalidate>
-     <div class="bk-steps" aria-hidden="true"><span class="on" data-s="1">1. Project</span><span data-s="2">2. Day &amp; time</span><span data-s="3">3. Your info</span></div>
-     <fieldset>
-      <legend>What are we painting?</legend>
-      <div class="opts">
-       <label class="opt"><input type="radio" name="proj" value="Interior" checked><span>Interior</span></label>
-       <label class="opt"><input type="radio" name="proj" value="Exterior"><span>Exterior</span></label>
-       <label class="opt"><input type="radio" name="proj" value="Kitchen cabinets"><span>Kitchen cabinets</span></label>
-       <label class="opt"><input type="radio" name="proj" value="Skim coat or repair"><span>Skim coat or repair</span></label>
-       <label class="opt"><input type="radio" name="proj" value="Commercial"><span>Commercial</span></label>
-      </div>
-     </fieldset>
-     <fieldset>
-      <legend>Choose a day</legend>
-      <div class="days" id="days"></div>
-     </fieldset>
-     <fieldset>
-      <legend>Choose a time</legend>
-      <div class="opts" id="times"></div>
-     </fieldset>
-     <div class="summary" id="sum" aria-live="polite"></div>
-     <div class="row2">
-      <div class="field"><label class="l" for="b-name">Name</label><input class="t" id="b-name" autocomplete="name" required><div class="err" hidden>Please add your name.</div></div>
-      <div class="field"><label class="l" for="b-phone">Phone</label><input class="t" id="b-phone" type="tel" autocomplete="tel" required><div class="err" hidden>Please add a phone number.</div></div>
+  <div class="bk rv" style="--d:1">
+   <form id="bkForm" novalidate>
+    <div class="bk-steps" aria-hidden="true"><span class="on" data-s="1">1. Project</span><span data-s="2">2. Day &amp; time</span><span data-s="3">3. Your info</span></div>
+    <fieldset>
+     <legend>What are we painting?</legend>
+     <div class="opts">
+      <label class="opt"><input type="radio" name="proj" value="Interior" checked><span>Interior</span></label>
+      <label class="opt"><input type="radio" name="proj" value="Exterior"><span>Exterior</span></label>
+      <label class="opt"><input type="radio" name="proj" value="Kitchen cabinets"><span>Kitchen cabinets</span></label>
+      <label class="opt"><input type="radio" name="proj" value="Skim coat or repair"><span>Skim coat or repair</span></label>
+      <label class="opt"><input type="radio" name="proj" value="Commercial"><span>Commercial</span></label>
      </div>
-     <div class="field"><label class="l" for="b-addr">Town or address</label><input class="t" id="b-addr" autocomplete="street-address" required><div class="err" hidden>Please add where the job is.</div></div>
-     <button class="btn btn-red" type="submit" style="width:100%">Confirm my estimate time</button>
-     <p class="demo-note"><b>Demo booking.</b> Days and times are made up for this concept. Nothing is booked, sent or saved.</p>
-    </form>
-    <div class="ok" id="bkOk" hidden tabindex="-1">
-     <h3>Demo complete.</h3>
-     <p id="okTxt"></p>
-     <p class="demo-note">On the real site Frank's would get a text and email, and you would get a confirmation. Nothing was booked or saved.</p>
-     <button class="btn btn-ink" type="button" id="again" style="margin-top:var(--s3)">Try it again</button>
+    </fieldset>
+    <fieldset>
+     <legend>Choose a day</legend>
+     <div class="days" id="days"></div>
+    </fieldset>
+    <fieldset>
+     <legend>Choose a time</legend>
+     <div class="opts" id="times"></div>
+    </fieldset>
+    <div class="summary" id="sum" aria-live="polite"></div>
+    <div class="row2">
+     <div class="field"><label class="l" for="b-name">Name</label><input class="t" id="b-name" autocomplete="name" required><div class="err" hidden>Please add your name.</div></div>
+     <div class="field"><label class="l" for="b-phone">Phone</label><input class="t" id="b-phone" type="tel" autocomplete="tel" required><div class="err" hidden>Please add a phone number.</div></div>
     </div>
+    <div class="field"><label class="l" for="b-addr">Town or address</label><input class="t" id="b-addr" autocomplete="street-address" required><div class="err" hidden>Please add where the job is.</div></div>
+    <button class="btn btn-red" type="submit" style="width:100%">Confirm my estimate time</button>
+    <p class="demo-note"><b>Demo booking.</b> Days and times are made up for this concept. Nothing is booked, sent or saved.</p>
+   </form>
+   <div class="ok" id="bkOk" hidden tabindex="-1">
+    <svg class="tick" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36"/><path d="M22 37l10 10 18-20"/></svg>
+    <h3>Demo complete.</h3>
+    <p id="okTxt"></p>
+    <p class="demo-note">On the real site Frank's would get a text and email, and you would get a confirmation. Nothing was booked or saved.</p>
+    <button class="btn btn-ink" type="button" id="again" style="margin-top:var(--s3)">Try it again</button>
    </div>
-   <aside class="side">
-    <h3>What the add-on includes</h3>
-    <ul>
-     <li><b>Your real calendar.</b> Only open slots show, so no double booking.</li>
-     <li><b>Instant alerts</b> by text and email when someone books.</li>
-     <li><b>Automatic reminders</b> to the homeowner the day before.</li>
-    </ul>
+  </div>
+  <div class="bk-inc rv" style="--d:2">
+   <h3>What the add-on includes</h3>
+   <ul>
+    <li><span><b>Your real calendar.</b> Only open slots show, so no double booking.</span></li>
+    <li><span><b>Instant alerts</b> by text and email when someone books.</span></li>
+    <li><span><b>Automatic reminders</b> to the homeowner the day before.</span></li>
+   </ul>
+   <div class="price-row">
     <p class="price">from $400<small>one-time, added to the website package</small></p>
     <p class="demo-note"><b>Sample feature.</b> This calendar is a working demo only. It is not connected to Frank's schedule.</p>
-   </aside>
+   </div>
   </div>
  </div>
 </section>
 
 <div class="consult">
  <div class="wrap">
-  <div class="consult-card">
-   <div class="swatches" aria-hidden="true"><i style="background:var(--red)"></i><i style="background:var(--clay)"></i><i style="background:var(--butter)"></i><i style="background:var(--sage)"></i><i style="background:var(--sky)"></i><i style="background:#3d4a5c"></i></div>
+  <div class="consult-card rv">
+   <div class="swatches" aria-hidden="true"><i style="--i:0;background:var(--red)"></i><i style="--i:1;background:var(--clay)"></i><i style="--i:2;background:var(--butter)"></i><i style="--i:3;background:var(--sage)"></i><i style="--i:4;background:var(--sky)"></i><i style="--i:5;background:#3d4a5c"></i></div>
    <div><h3>Free color consultation</h3><p>For any project over $3,000, sit down one-on-one with Frank's interior designer to choose colors before work starts.</p></div>
    <a class="btn btn-ink" href="#book">Ask at your estimate</a>
   </div>
@@ -341,18 +443,18 @@ footer a{color:#fff}
 
 <section class="areas" id="areas">
  <div class="wrap area-grid">
-  <div>
+  <div class="rv">
    <p class="eyebrow">Service area</p>
-   <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:var(--s4)">Based in Levittown, painting all over Nassau and Suffolk.</h2>
+   <h2>Based in Levittown, painting all over Nassau and Suffolk.</h2>
    <ul class="towns">
     <li>Levittown</li><li>Garden City</li><li>All of Nassau County</li><li>All of Suffolk County</li>
    </ul>
   </div>
-  <div class="contact-box">
+  <div class="contact-box rv" style="--d:1">
    <p class="eyebrow">Talk to Frank's</p>
    <a class="big" href="tel:+15169245398">(516) 924-5398</a>
    <p style="margin:0 0 var(--s2)"><a href="mailto:FranksPainting3@aol.com">FranksPainting3@aol.com</a></p>
-   <p style="margin:0 0 var(--s4);color:var(--soft)">Levittown, NY 11756 &middot; Field office in Garden City</p>
+   <p style="margin:0 0 var(--s5);color:var(--soft)">Levittown, NY 11756 &middot; Field office in Garden City</p>
    <a class="btn btn-red" href="#book">Book an estimate</a>
   </div>
  </div>
@@ -365,7 +467,7 @@ footer a{color:#fff}
    <div><b>Frank's Painting of LI, LLC</b><p style="margin:var(--s1) 0 0">Licensed painting contractor &middot; Levittown, NY</p></div>
    <div><p style="margin:0"><a href="tel:+15169245398">(516) 924-5398</a></p><p style="margin:var(--s1) 0 0"><a href="mailto:FranksPainting3@aol.com">FranksPainting3@aol.com</a></p></div>
   </div>
-  <p class="dis">Independent website concept designed by Lisette Colon. Not affiliated with or approved by Frank's Painting of LI, LLC. Photos, services and contact details are from the business's public website (frankspainting.net); the HomeAdvisor rating and project count were checked October 2026. The online booking calendar is a sample feature with made-up availability.</p>
+  <p class="dis">Independent website concept designed by Lisette Colon. Not affiliated with or approved by Frank's Painting of LI, LLC. Logo, photos, services and contact details are from the business's public website (frankspainting.net); the HomeAdvisor rating and project count were checked October 2026. The online booking calendar is a sample feature with made-up availability.</p>
  </div>
 </footer>
 <a class="btn btn-red mobile-book" href="#book">Book an estimate</a>
@@ -373,9 +475,32 @@ footer a{color:#fff}
 <script>
 (function(){
 var d=document,$=function(s,r){return (r||d).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))};
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var mb=$(".menu-btn"),nav=$("#nav");
 mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o);mb.textContent=o?"Close":"Menu";});
 $$("#nav a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");mb.setAttribute("aria-expanded",false);mb.textContent="Menu";});});
+var hdr=$("#hdr");
+
+/* hero: primer to colour, rolled on in three lanes */
+var hero=$(".hero"),hi=$("#heroImg"),started=false;
+function go(){if(started)return;started=true;hero.classList.add("go");$("#art").classList.add("go");count();}
+if(hi.complete)setTimeout(go,150);else{hi.addEventListener("load",function(){setTimeout(go,150)});hi.addEventListener("error",go);}
+setTimeout(go,2500);
+function count(){$$(".trust b[data-n]").forEach(function(b){var n=+b.getAttribute("data-n"),dc=+(b.getAttribute("data-dec")||0),sf=b.getAttribute("data-suf")||"";if(RM)return;var t0=null,dur=1400;
+ function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3),v=n*e;b.textContent=(dc?v.toFixed(dc):Math.round(v).toLocaleString("en-US"))+sf;if(k<1)requestAnimationFrame(f);}
+ setTimeout(function(){requestAnimationFrame(f)},900);});}
+
+/* reveals */
+var rv=$$(".rv");
+if("IntersectionObserver" in window&&!RM){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{rootMargin:"0px 0px -12% 0px"});rv.forEach(function(e){io.observe(e)});}
+else rv.forEach(function(e){e.classList.add("in")});
+
+/* prep stripe follows the scroll */
+var st=$("#steps"),stripe=$(".stripe",st),lis=$$("li",st);
+function onScroll(){hdr.classList.toggle("sc",scrollY>8);if(RM)return;var r=st.getBoundingClientRect(),vh=innerHeight,p=(vh*.62-r.top)/r.height;p=Math.max(0,Math.min(1,p));stripe.style.setProperty("--p",p.toFixed(3));
+ lis.forEach(function(li){var lr=li.getBoundingClientRect();li.classList.toggle("on",(lr.top+23-r.top)/r.height<=p+.02);});}
+var tk=false;addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(function(){onScroll();tk=false})}},{passive:true});onScroll();
+if(RM)lis.forEach(function(li){li.classList.add("on")});
 
 /* demo booking calendar: next 10 weekdays, pseudo-random taken slots */
 var days=$("#days"),times=$("#times"),sum=$("#sum"),slots=["8:00 AM","10:00 AM","12:30 PM","3:00 PM","5:30 PM"];
